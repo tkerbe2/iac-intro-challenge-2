@@ -6,7 +6,7 @@
 
 Welcome to your third and final challenge! This completion of this challenge will concude the course and arm you with the knowledge to read and write Terraform proficiently to create and manage infrastructure in the cloud. This challenge will not have a walk-through or direct steps. I want you to use your previous knowledge, labs, code, and all resoruces available to you to try and complete this. It is completely okay if you get stuck and need to look at the solution code - that is what it is there for. Additionally, if you just want to deploy the solution code first and see how it behaves and then reverse engineer it, that is an option. There is not really a right or wrong way to complete this challenge. The goal of this challenge is to inspire you to be creative and try and find the solution all on your own. I will have high-level steps below and a list of resources that can point you in the right direction.  
 
-## High-Level Steps
+## 📋 High-Level Steps
 
 - Log into your personal GitHub.
 - Fork this repo with the starter code to your own personal GitHub.
@@ -25,7 +25,7 @@ Welcome to your third and final challenge! This completion of this challenge wil
 - *(Optional) Log into the EC2 instance.*
 - When finished destroy your resources.
 
-# Helpful Resources
+## ℹ️ Helpful Resources
 
 - [Terraform Registry Resource: aws_lb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)
 - 
