@@ -8,9 +8,9 @@
 #                      |_|                           
 
 
-data "aws_ami" "amazon-linux-2" {
+data "aws_ami" "amazon_linux_2" {
  most_recent = true
-
+ owners      = ["amazon"]
 
  filter {
    name   = "owner-alias"
@@ -30,7 +30,7 @@ data "aws_ami" "amazon-linux-2" {
 resource "aws_instance" "web_server" {
 
     count                       = length(var.availability_zones)
-    ami                         = data.aws_ami.amazon-linux-2.id
+    ami                         = data.aws_ami.amazon_linux_2.id
     instance_type               = var.instance_type
     security_groups             = [aws_security_group.web_servers_sg.id]
     subnet_id                   = aws_subnet.app_sn[count.index].id
