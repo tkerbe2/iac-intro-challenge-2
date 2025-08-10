@@ -8,7 +8,7 @@ Welcome to your third and final challenge! This completion of this challenge wil
 
 ## 🏁 Desired End State
 
-At this point in the course I want you to think bigger picture. Imagine you're in a DevSecOps role and someone hands you a diagram of a desired build and asks if you can turn it into code. There is a DrawIO diagram in this repo. Take a look at the diagram and see if you can bring it to life with the starter code, high-level steps below, and all previous knowledge, resources, and the internet. 
+At this point in the course I want you to think bigger picture. Imagine you're in a DevSecOps role and someone hands you a diagram of a desired build and asks if you can turn it into code. There is a DrawIO diagram in this repo and a PNG version below. Take a look at the diagram and see if you can bring it to life with the starter code, high-level steps below, and all previous knowledge, resources, and the internet. 
 
 <br>
 
