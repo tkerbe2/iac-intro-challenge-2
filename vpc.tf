@@ -53,7 +53,7 @@ resource "aws_subnet" "app_sn" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "${local.name_prefix}-${count.index}-web"
+    Name = "${local.name_prefix}-${count.index}-web-sn"
   }
 
 }
