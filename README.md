@@ -10,6 +10,12 @@ Welcome to your third and final challenge! This completion of this challenge wil
 
 At this point in the course I want you to think bigger picture. Imagine you're in a DevSecOps role and someone hands you a diagram of a desired build and asks if you can turn it into code. There is a DrawIO diagram in this repo. Take a look at the diagram and see if you can bring it to life with the starter code, high-level steps below, and all previous knowledge, resources, and the internet. 
 
+<br>
+
+<img width="622" height="836" alt="challenge-3-diagram" src="https://github.com/user-attachments/assets/ca2df17e-2d09-458c-b22c-7aa55c5027ba" />
+
+<br>
+
 ## 📋 High-Level Steps
 
 - Log into your personal GitHub.
