@@ -6,6 +6,10 @@
 
 Welcome to your third and final challenge! This completion of this challenge will concude the course and arm you with the knowledge to read and write Terraform proficiently to create and manage infrastructure in the cloud. This challenge will not have a walk-through or direct steps. I want you to use your previous knowledge, labs, code, and all resoruces available to you to try and complete this. It is completely okay if you get stuck and need to look at the solution code - that is what it is there for. Additionally, if you just want to deploy the solution code first and see how it behaves and then reverse engineer it, that is an option. There is not really a right or wrong way to complete this challenge. The goal of this challenge is to inspire you to be creative and try and find the solution all on your own. I will have high-level steps below and a list of resources that can point you in the right direction.  
 
+## 🏁 Desired End State
+
+At this point in the course I want you to think bigger picture. Imagine you're in a DevSecOps role and someone hands you a diagram of a desired build and asks if you can turn it into code. There is a DrawIO diagram in this repo. Take a look at the diagram and see if you can bring it to life with the starter code, high-level steps below, and all previous knowledge, resources, and the internet. 
+
 ## 📋 High-Level Steps
 
 - Log into your personal GitHub.
@@ -28,4 +32,3 @@ Welcome to your third and final challenge! This completion of this challenge wil
 ## ℹ️ Helpful Resources
 
 - [Terraform Registry Resource: aws_lb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb)
-- 
