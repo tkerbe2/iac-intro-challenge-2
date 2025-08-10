@@ -11,14 +11,19 @@
 # VPC Resource #
 #==============#
 
+# Read notes in numerical order
 
 resource "aws_vpc" "lab_vpc" {
-  cidr_block       = "192.168.200.0/23"
+  cidr_block       = var.cidr_block
   instance_tenancy = "default"
 
   tags = {
-    Name        = "tkdev-use1-dev-vpc"
-    Environment = "dev"
+
+    # 1.
+    # In this tag we use string interpolation to combine our naming name prefix with -vpc at the end to identify the type of resource.
+    # Notice I use the same naming convention for the other resources.
+    Name        = "${local.name_prefix}-vpc"
+    Environment = var.env
   }
 }
 
@@ -26,26 +31,19 @@ resource "aws_vpc" "lab_vpc" {
 # Subnet Resource #
 #=================#
 
-resource "aws_subnet" "lab_web_sn_a" {
+# 2.
+# Here we create multiple subnets using the for_each Meta-Argument.
+# This allows us to create multiple resources with a single resource block.
+
+resource "aws_subnet" "lab_web_sn" {
+count = length(local.availability_zones)
 
   vpc_id     = aws_vpc.lab_vpc.id
-  cidr_block = "192.168.200.0/28"
-  availability_zone = "us-east-1a"
-  
+  cidr_block = cidrsubnet(var.cidr_block, var.borrowed_bits, count.index)
+  availability_zone = local.availability_zones[count.index]
   tags = {
-    Name        = "tkdev-use1-dev-web-sn-a"
-    Environment = "dev"
-  }
-}
-
-resource "aws_subnet" "lab_web_sn_b" {
-
-  vpc_id     = aws_vpc.lab_vpc.id
-  cidr_block = "192.168.200.16/28"
-  availability_zone = "us-east-1b"
-  tags = {
-    Name        = "tkdev-use1-dev-web-sn-b"
-    Environment = "dev"
+    Name        = "${local.name_prefix}-${count.index + 1}-web"
+    Environment = var.env
   }
 }
 
@@ -57,8 +55,8 @@ resource "aws_internet_gateway" "lab_igw" {
   vpc_id = aws_vpc.lab_vpc.id
 
   tags = {
-    Name        = "tkdev-use1-dev-igw"
-    Environment = "dev"
+    Name        = "${local.name_prefix}-web-igw"
+    Environment = var.env
   }
 }
 
@@ -75,23 +73,16 @@ resource "aws_default_route_table" "lab_default_rt" {
     }
 
   tags = {
-    Name        = "tkdev-use1-dev-rt"
-    Environment = "dev"
+    Name        = "${local.name_prefix}-web-sn"
+    Environment = var.env
   }
 }
 
 #=========================#
 # Route Table Association #
 #=========================#
-
-resource "aws_route_table_association" "rta_a" {
-
-  subnet_id      = aws_subnet.lab_web_sn_a.id
-  route_table_id = aws_default_route_table.lab_default_rt.id
-}
-
-resource "aws_route_table_association" "rta_b" {
-
-  subnet_id      = aws_subnet.lab_web_sn_b.id
+resource "aws_route_table_association" "rta" {
+  count          = length(local.availability_zones)
+  subnet_id      = aws_subnet.lab_web_sn[count.index].id
   route_table_id = aws_default_route_table.lab_default_rt.id
 }

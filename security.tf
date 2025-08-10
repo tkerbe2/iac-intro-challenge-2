@@ -7,8 +7,9 @@
 #                                   __/ |         
 #                                  |___/          
 
+
 resource "aws_security_group" "web_servers_sg" {
-  name        = "tkdev-use1-dev-web-server-sg"
+  name        = "${local.name_prefix}-web-server-sg"
   description = "Allow HTTP and HTTPS traffic to web servers"
   vpc_id      = aws_vpc.lab_vpc.id
 
@@ -21,8 +22,7 @@ resource "aws_security_group" "web_servers_sg" {
   }
   
   tags = {
-    Name        = "tkdev-use1-dev-web-servers-sg"
-    Environment = "dev"
+    Name = "${local.name_prefix}-web-server-sg"
   }
 
 }
@@ -30,7 +30,7 @@ resource "aws_security_group" "web_servers_sg" {
 #==============================#
 # Security Group Ingress Rules #
 #==============================#
-
+#These are all the rules necessary to allow our traffic inbound to our web servers
 resource "aws_vpc_security_group_ingress_rule" "allow_http" {
   security_group_id = aws_security_group.web_servers_sg.id
   cidr_ipv4         = "0.0.0.0/0"
